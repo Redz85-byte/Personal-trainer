@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -27,9 +27,6 @@ export default function CalendarPage() {
   return (
     <Card sx={{ width: "90%", margin: "30px auto", boxShadow: 3 }}>
       <CardContent sx={{ padding: 2 }}>
-        <Typography variant="h6" gutterBottom>
-          Training Calendar
-        </Typography>
         <div style={{ height: 600, overflowY: "auto" }}>
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}

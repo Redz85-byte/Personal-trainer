@@ -1,3 +1,5 @@
+import type { NewTraining } from "../types";
+
 export function getTrainings() {
   return fetch(import.meta.env.VITE_API_URL + 'trainings')
     .then(response => {
@@ -16,4 +18,29 @@ export function getTrainingsWithCustomer() {
       }
       return response.json();
     });
+}
+
+
+export function deleteTraining(url: string) {
+  return fetch(url, { method: "DELETE" })
+    .then(response => {
+      if (!response.ok)
+        throw new Error("Error when deleting training: " + response.statusText);
+        
+    response.json();
+  })
+}
+
+export function addTraining(newTraining: NewTraining) {
+  return fetch(import.meta.env.VITE_API_URL + "/trainings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newTraining),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Error when adding a new training");
+    }
+    return response.json();
+  });
 }

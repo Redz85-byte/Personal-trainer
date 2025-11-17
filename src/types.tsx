@@ -29,3 +29,14 @@ export type Training = {
         lastname: string;
     };
     };
+
+    export type NewTraining = {
+    date: string;
+    activity: string;
+    duration: number;
+    customer: string;
+};
+
+
+export type CustomerForm= Omit<Customer, "_links">; 
+

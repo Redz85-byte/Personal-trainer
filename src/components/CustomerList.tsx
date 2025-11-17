@@ -2,10 +2,11 @@ import { DataGrid, type GridColDef, type GridRenderCellParams } from '@mui/x-dat
 import { useState, useEffect } from 'react';
 import type { Customer } from '../types';
 import { getCustomers, deleteCustomer } from '../api/customerapi';
-import { IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCustomerComponent from './AddCustomer';
 import EditCustomer from './EditCustomer';
+import { exportCustomersToCSV } from '../api/exportCVS';
 
 function CustomerList() {
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -62,6 +63,9 @@ function CustomerList() {
       <div style={{ width: '80&', height: 500, margin: '50px auto 0 auto' }}>
           <div style={{ marginBottom: "10px" }}>
         <AddCustomerComponent fetchCustomers={getCustomers} />
+           <Button variant="outlined" onClick={() => exportCustomersToCSV(customers)}>
+        Export Customers CSV
+      </Button>
       </div>
         <DataGrid
           rows={customers}

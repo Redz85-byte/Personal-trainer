@@ -24,13 +24,18 @@ function TrainingList() {
         fetchTrainings();
     }, []);
 
-    const handleDelete = (url: string) => {
-        if (window.confirm("Are you sure?")) {
-            deleteTraining(url)
-                .then(() => fetchTrainings())
-                .catch((err) => console.error(err));
-        }
-    };
+ const handleDelete = (row: Training) => {
+  if (!row.id) {
+    console.error("Cannot delete: id missing for row", row);
+    return;
+  }
+
+  if (window.confirm("Are you sure?")) {
+    deleteTraining(row.id)
+      .then(() => fetchTrainings())
+      .catch(err => console.error(err));
+  }
+};
 
     const columns: GridColDef[] = [
         {
@@ -62,7 +67,7 @@ function TrainingList() {
               <IconButton
         color="error"
         size="small"
-        onClick={() => handleDelete(params.row._links.self.href)}
+         onClick={() => handleDelete(params.row as Training)}
       >
         <DeleteIcon />
       </IconButton>

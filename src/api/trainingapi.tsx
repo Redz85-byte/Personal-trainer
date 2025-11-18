@@ -21,15 +21,17 @@ export function getTrainingsWithCustomer() {
 }
 
 
-export function deleteTraining(url: string) {
-  return fetch(url, { method: "DELETE" })
-    .then(response => {
-      if (!response.ok)
-        throw new Error("Error when deleting training: " + response.statusText);
-        
-    response.json();
+export function deleteTraining(id: number) {
+  return fetch(`${import.meta.env.VITE_API_URL}/trainings/${id}`, {
+    method: "DELETE"
   })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Error when deleting training: " + response.statusText);
+    }
+  });
 }
+
 
 export function addTraining(newTraining: NewTraining) {
   return fetch(import.meta.env.VITE_API_URL + "/trainings", {

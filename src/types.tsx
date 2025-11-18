@@ -20,6 +20,7 @@ export type Customer = {
 }
 
 export type Training = {
+    _links: any;
     id: number;
     date: string;
     duration: number;

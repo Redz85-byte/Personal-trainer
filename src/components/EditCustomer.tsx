@@ -16,7 +16,7 @@ export default function EditCustomer({ fetchCustomers, customerRow }: EditCustom
     lastname: "",
     email: "",
     phone: "",
-    streetadress: "",
+    streetaddress: "",
     postcode: "",
     city: "",
   });
@@ -29,7 +29,7 @@ export default function EditCustomer({ fetchCustomers, customerRow }: EditCustom
       lastname: customerRow.lastname,
       email: customerRow.email,
       phone: customerRow.phone,
-      streetadress: customerRow.streetadress,
+      streetaddress: customerRow.streetaddress,
       postcode: customerRow.postcode,
       city: customerRow.city,
     });
@@ -98,8 +98,8 @@ export default function EditCustomer({ fetchCustomers, customerRow }: EditCustom
           <TextField
             margin="dense"
             label="Street address"
-            value={customer.streetadress}
-            onChange={(e) => setCustomer({ ...customer, streetadress: e.target.value })}
+            value={customer.streetaddress}
+            onChange={(e) => setCustomer({ ...customer, streetaddress: e.target.value })}
             fullWidth
             variant="standard"
           />

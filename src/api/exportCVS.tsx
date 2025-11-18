@@ -7,7 +7,7 @@ export function exportCustomersToCSV(customers: Customer[]) {
   const rows = customers.map(c => [
     c.firstname,
     c.lastname,
-    c.streetadress,
+    c.streetaddress,
     c.postcode,
     c.city,
     c.email,

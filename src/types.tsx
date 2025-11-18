@@ -1,7 +1,7 @@
 export type Customer = {
     firstname: string;
     lastname: string;
-    streetadress: string;
+    streetaddress: string;
     postcode: string;
     city: string;
     email: string;
